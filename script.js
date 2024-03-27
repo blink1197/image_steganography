@@ -106,8 +106,17 @@ function manipulateImage() {
         
         for (let pixel of pixels) {
 
-            if (messageBinaryStringArray[i] == '1') {
-                data_copy[pixel] += 1;
+            if (messageBinaryStringArray[i] == '1' && data[pixel] % 2 == 0) {
+                data_copy[pixel] = data[pixel] + 1;
+            } else if  (messageBinaryStringArray[i] == '1' && data[pixel] % 2 == 1){
+                data_copy[pixel] = data[pixel]
+            } else if (messageBinaryStringArray[i] == '0' && data[pixel] % 2 == 0) {
+                data_copy[pixel] = data[pixel]
+            } else if (messageBinaryStringArray[i] == '0' && data[pixel] % 2 == 1) {
+                if (data[pixel] == 255) {
+                    data_copy[pixel] = data[pixel] - 1;
+                }
+                data_copy[pixel] = data[pixel] + 1;
             }
 
             i ++;
@@ -131,8 +140,8 @@ function selectNumbers(N, M, seed) {
     const rng = new Math.seedrandom(numericSeed);
 
     let numbers = [];
-    for (let i = 0; i <= N; i++) {
-        numbers.push(i);  // Create an array of numbers from 0 to N
+    for (let i = 1; i <= N; i++) {
+        numbers.push(i);  
     }
     // Shuffle the array using Fisher-Yates algorithm with the initialized PRNG
     for (let i = numbers.length - 1; i > 0; i--) {
