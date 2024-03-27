@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="styles.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/seedrandom/3.0.5/seedrandom.min.js"></script>
+        <title>Image Steganography</title>
+    </head>
+
+    <body>
+        <main>
+            <h1>Image Steganography</h1>
+            <form id="uploadForm">
+                <input type="radio" id="embed" name="mode" value="embed" checked>
+                <label for="embed">Embed Message</label>
+                <input type="radio" id="extract" name="mode" value="extract">
+                <label for="extract">Extract Message</label>
+                
+                <br>
+                <br>
+                <canvas class="hide" id="canvas"></canvas>
+                <label for="imageUpload">Image:</label>
+                <input type="file" id="imageUpload" name="imageUpload" required>
+    
+                <br>
+                <br>
+                
+                <label for="message">Message:</label>
+                <textarea type="text" id="message" name="imageUpload" rows="4" cols="50" placeholder="Enter some text..." required></textarea>
+
+                <label for="message">Secret Code:</label>
+                <input type="text" id="secret" name="secret" required>
+    
+                <br>
+                <br>
+    
+                <input type="button" value="Submit" id="submit">
+            </form>
+
+            <br>
+            <br>
+
+            <button id="downloadImage">Download Image</button>
+        </main>
+        <script src ="./script.js"></script>
+    </body>
+
+
+</html>
