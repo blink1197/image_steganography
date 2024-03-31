@@ -1,5 +1,8 @@
 const downloadButton = document.getElementById('downloadImage');
+const embedRadioButton = document.getElementById('embed');
+const extractRadioButton = document.getElementById('extract');
 const submitButton = document.getElementById('submit');
+const inputMessageContainer = document.getElementById("input-message");
 
 let fileName = '';
 let numberOfPixels;
@@ -7,6 +10,20 @@ let messageBinaryString;
 let messageBinaryStringArray;
 let secretCode;
 let message;
+
+
+function handleModeChange() {
+    if (document.getElementById('embed').checked) {
+        inputMessageContainer.classList.remove('hide');
+        downloadButton.classList.remove('hide');
+    } else if (document.getElementById('extract').checked) {
+        inputMessageContainer.classList.add('hide');
+        downloadButton.classList.add('hide');
+    }
+}
+
+
+
 
 function handleImageUpload() {
     const fileInput = document.getElementById('imageUpload');
@@ -180,6 +197,8 @@ function divideStringIntoGroups(str) {
 
 
 downloadButton.addEventListener("click", downloadImage);
+embedRadioButton.addEventListener("change", handleModeChange);
+extractRadioButton.addEventListener("change", handleModeChange);
 submitButton.addEventListener("click", function() {
     handleImageUpload();
     getMessageAndCode();
