@@ -10,7 +10,17 @@
 
     <body>
         <main>
-            <h1>Image Steganography</h1>
+            
+            <section>
+                <h1>Image Steganography</h1>
+                <div>
+                    Image steganography is the practice of concealing information within the data of digital images without altering their visual appearance
+                </div>
+            </section>
+
+            <br>
+            <br>
+
             <form id="uploadForm">
                 <input type="radio" id="embed" name="mode" value="embed" checked>
                 <label for="embed">Embed Message</label>
@@ -28,6 +38,9 @@
                 
                 <label for="message">Message:</label>
                 <textarea type="text" id="message" name="imageUpload" rows="4" cols="50" placeholder="Enter some text..." required></textarea>
+
+                <br>
+                <br>
 
                 <label for="message">Secret Code:</label>
                 <input type="text" id="secret" name="secret" required>
